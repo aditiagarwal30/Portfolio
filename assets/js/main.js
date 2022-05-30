@@ -68,9 +68,45 @@ tabs.forEach(tab =>{
 
 /*==================== SERVICES MODAL ====================*/
 
+const modalViews = document.querySelectorAll('.services_modal'),
+      modalBtns =  document.querySelectorAll('.services_button'),
+      modalCloses = document.querySelectorAll('.services_modal-close')
+
+console.log(modalViews)
+
+let modal= function(modalClick){
+    modalViews[modalClick].classList.add('active-modal')
+}
+
+modalBtns.forEach((modalBtn, i) => {
+    modalBtn.addEventListener('click' , ()  =>{
+        modal(i)
+    })
+})
+
+modalCloses.forEach((modalClose)  =>{
+    modalClose.addEventListener('click', () =>{
+        modalViews.forEach((modalView) =>{
+            modalView.classList.remove('active-modal')
+        })
+    })
+})
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 
+let swiper = new Swiper(".portfolio_container ", {
+    cssMode: true,
+    loop:true,
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      cickable: true,
+    },
+  });
 
 /*==================== TESTIMONIAL ====================*/
 
